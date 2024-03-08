@@ -30,8 +30,8 @@ For the mock API:
 
 For the client:
 
-- [ ] Scaffold a React app with Vite (seemed to be faster than `create-react-app` last time I checked)
-- [ ] Add Bulma for styling (doesn't have the build overhead of Tailwind for little projects like this)
+- [x] Scaffold a React app with Vite (seemed to be faster than `create-react-app` last time I checked)
+- [x] Add Bulma for styling (doesn't have the build overhead of Tailwind for little projects like this)
 - [ ] React component for the file input which has:
   - [ ] A little validation so it accepts one JPEG at a time
   - [ ] Props and state to restrict "frustrated" clicks while we wait for the API
