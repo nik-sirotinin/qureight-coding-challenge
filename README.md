@@ -24,9 +24,9 @@ I'm used to working with "monorepo" type projects, which works nicely when you n
 
 For the mock API:
 
-- [ ] Tiny Python server running FastAPI (I've never used FastAPI before, but I hear it's fast to write as well as to run 😉)
-- [ ] Respond with a random result after a 60sec timeout
-- [ ] Add a little extra data (it's a classifier so a percentage measure of confidence feels appropriate)
+- [x] Tiny Python server running FastAPI (I've never used FastAPI before, but I hear it's fast to write as well as to run 😉)
+- [x] Respond with a random result after a 60sec timeout
+- [x] Add a little extra data (it's a classifier so a percentage measure of confidence feels appropriate)
 
 For the client:
 
