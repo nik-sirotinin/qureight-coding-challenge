@@ -1,12 +1,14 @@
+import clsx from "clsx";
 import { ChangeEventHandler, FC, useState } from "react";
 
 type ValidationState = "blank" | "valid" | "wrong-format";
 
 interface CatFileInputProps {
   onSubmit: (file: File) => void;
+  isLoading: boolean;
 }
 
-const CatFileInput: FC<CatFileInputProps> = ({ onSubmit }) => {
+const CatFileInput: FC<CatFileInputProps> = ({ onSubmit, isLoading }) => {
   const [validationState, setValidationState] =
     useState<ValidationState>("blank");
   const [fileName, setFileName] = useState("");
@@ -47,7 +49,7 @@ const CatFileInput: FC<CatFileInputProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <div className="field">
         <div className="file has-name is-boxed">
           <label className="file-label">
@@ -65,17 +67,18 @@ const CatFileInput: FC<CatFileInputProps> = ({ onSubmit }) => {
         </div>
       </div>
       <div className="field">
-        <div className="control">
+        <div className={clsx("control", { "is-loading": isLoading })}>
           <button
-            className="button is-link"
+            className="button"
             type="submit"
-            disabled={validationState !== "valid"}
+            disabled={validationState !== "valid" || isLoading}
+            onClick={() => handleSubmit()}
           >
             Upload
           </button>
         </div>
       </div>
-    </form>
+    </>
   );
 };
 
