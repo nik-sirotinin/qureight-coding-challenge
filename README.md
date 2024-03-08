@@ -18,7 +18,7 @@ Quality is expecting a robust and reliable system.
 - Task should be completed in 2 hours or less
 - Use this repository as a template for your app
 
-# Solution
+## Solution
 
 I'm used to working with "monorepo" type projects, which works nicely when you need to add any extra services, infra code or config and any project-wide stuff can go at the top level.
 
@@ -34,7 +34,7 @@ For the client:
 - [x] Add Bulma for styling (doesn't have the build overhead of Tailwind for little projects like this)
 - [x] React component for the file input which has:
   - [x] A little validation so it accepts only JPEGs
-  - [ ] Props and state to restrict "frustrated" clicks while we wait for the API
+  - [x] Props to control disabled and "loading" state
 - [ ] React component to display the output from the API
   - A minimal "yes/no", appropriately styled
   - Supplementary info
@@ -43,3 +43,15 @@ For putting it together:
 
 - [ ] `Dockerfile`s in the API and client directories
 - [ ] `docker-compose.yml` for running the whole thing with one command
+
+## Outcome
+
+Trying to cobble things together to time doesn't always go to plan - in my case, the assumption I made was that my little Mock API would "just work" but it's not happy with the requests from the client: the best I can get out of it is a HTTP 400.
+
+So I haven't made the client as pretty as I'd like and I'm still one UI component short. My original vision for server, client and Docker containers was probably a little too much.
+
+### Lessons
+
+Trying to do the entire "full stack" thing from scratch was probably a mistake. It might have been better to keep the API fakery entirely on the client side.
+
+Road testing unfamiliar frameworks while on a deadline also not a good idea. But it was fun for a while, I don't regret it from that perspective.
