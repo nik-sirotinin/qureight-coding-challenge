@@ -28,6 +28,8 @@ For the mock API:
 - [x] Respond with a random result after a 60sec timeout
 - [x] Add a little extra data (it's a classifier so a percentage measure of confidence feels appropriate)
 
+(Note to self: API dev command is `uvicorn main:app --reload`)
+
 For the client:
 
 - [x] Scaffold a React app with Vite (seemed to be faster than `create-react-app` last time I checked)
@@ -38,6 +40,8 @@ For the client:
 - [ ] React component to display the output from the API
   - A minimal "yes/no", appropriately styled
   - Supplementary info
+
+(Note to self: usual `npm run dev` for hot reloads)
 
 For putting it together:
 
