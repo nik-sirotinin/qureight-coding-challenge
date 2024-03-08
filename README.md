@@ -32,8 +32,8 @@ For the client:
 
 - [x] Scaffold a React app with Vite (seemed to be faster than `create-react-app` last time I checked)
 - [x] Add Bulma for styling (doesn't have the build overhead of Tailwind for little projects like this)
-- [ ] React component for the file input which has:
-  - [ ] A little validation so it accepts one JPEG at a time
+- [x] React component for the file input which has:
+  - [x] A little validation so it accepts only JPEGs
   - [ ] Props and state to restrict "frustrated" clicks while we wait for the API
 - [ ] React component to display the output from the API
   - A minimal "yes/no", appropriately styled
