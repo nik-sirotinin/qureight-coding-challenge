@@ -1,18 +1,35 @@
 import { useState } from "react";
 import "./App.css";
 import CatFileInput from "./components/CatFileInput";
-import { fetchIsThisACat } from "./cat-classifier";
+import { CatClassifierResult, fetchIsThisACat } from "./cat-classifier";
 
 function App() {
   const [isLoading, setLoading] = useState(false);
-  const [catResult, setCatResult] = useState(null);
+  const [catResult, setCatResult] = useState<CatClassifierResult | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const uploadCatFile = async (file: File) => {
     setLoading(true);
     const result = await fetchIsThisACat(file);
-    setCatResult(result);
+    if (result instanceof Error) {
+      setErrorMessage(result.message);
+      setCatResult(null);
+    } else {
+      setErrorMessage("");
+      setCatResult(result);
+    }
     setLoading(false);
   };
+
+  const catResultOutput = () => <p>{JSON.stringify(catResult)}</p>;
+  const errorOutput = () => (
+    <div className="message is-danger">
+      <div className="message-header">
+        <p>Error</p>
+      </div>
+      <div className="message-body">{errorMessage}</div>
+    </div>
+  );
 
   return (
     <>
@@ -23,7 +40,8 @@ function App() {
       </section>
       <section className="section">
         <CatFileInput onSubmit={uploadCatFile} isLoading={isLoading} />
-        {JSON.stringify(catResult)}
+        {catResult ? catResultOutput() : ""}
+        {errorMessage ? errorOutput() : ""}
       </section>
     </>
   );

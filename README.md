@@ -50,7 +50,7 @@ For putting it together:
 
 ## Outcome
 
-Trying to cobble things together to time doesn't always go to plan - in my case, the assumption I made was that my little Mock API would "just work" but it's not happy with the requests from the client: the best I can get out of it is a HTTP 400.
+Trying to cobble things together to time doesn't always go to plan - in my case, the assumption I made was that my little Mock API would "just work" but it wasn't happy with the requests from the client for a while... until I realised I left CORS out of the equation.
 
 So I haven't made the client as pretty as I'd like and I'm still one UI component short. My original vision for server, client and Docker containers was probably a little too much.
 

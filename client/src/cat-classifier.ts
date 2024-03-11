@@ -1,11 +1,22 @@
-export const fetchIsThisACat = async (file: File) => {
-  const formData = new FormData();
-  formData.append("image", file);
+export interface CatClassifierResult {
+  success: boolean;
+  confidence: number;
+  info: string;
+}
 
-  const response = await fetch("http://localhost:8000/isthisacat/", {
-    method: "PUT",
-    headers: { "Content-Type": "image/jpeg" },
-    body: formData,
-  });
-  return await response.json();
+export const fetchIsThisACat = async (
+  file: File
+): Promise<CatClassifierResult | Error> => {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const response = await fetch("http://localhost:8000/isthisacat/", {
+      method: "POST",
+      body: formData,
+    });
+    return await response.json();
+  } catch (err) {
+    return Error(String(err));
+  }
 };
