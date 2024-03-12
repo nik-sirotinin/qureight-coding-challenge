@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import CatFileInput from "./components/CatFileInput";
 import { CatClassifierResult, fetchIsThisACat } from "./cat-classifier";
+import CatFileInput from "./components/CatFileInput";
+import CatOutput from "./components/CatOutput";
 
 function App() {
   const [isLoading, setLoading] = useState(false);
@@ -21,7 +22,6 @@ function App() {
     setLoading(false);
   };
 
-  const catResultOutput = () => <p>{JSON.stringify(catResult)}</p>;
   const errorOutput = () => (
     <div className="message is-danger">
       <div className="message-header">
@@ -40,7 +40,7 @@ function App() {
       </section>
       <section className="section">
         <CatFileInput onSubmit={uploadCatFile} isLoading={isLoading} />
-        {catResult ? catResultOutput() : ""}
+        {catResult ? <CatOutput result={catResult} /> : ""}
         {errorMessage ? errorOutput() : ""}
       </section>
     </>
